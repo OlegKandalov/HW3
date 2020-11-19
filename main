@@ -9,9 +9,9 @@ public static void main(String[] args) {
     }
     
 /*addition result: 6.8
-  subtraction result: 2.8
-  multiplication result: 9.60
-  division result: 2.4*/
+subtraction result: 2.8
+multiplication result: 9.60
+division result: 2.40*/
   
   
  public static void main(String[] args) {
