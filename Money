@@ -35,7 +35,7 @@ class Money{
         BigDecimal bdSecond = new BigDecimal(secondNum);
 
         System.out.println("division result: " +
-                bdFirst.divide(bdSecond).toString().replace(".",","));
+                bdFirst.divide(bdSecond,2,RoundingMode.DOWN).toString().replace(".",","));
     }
 
     public void fractionalDiv(double money){
