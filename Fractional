@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 class Fractional{
     long beforePoint;
@@ -39,6 +40,6 @@ class Fractional{
         BigDecimal bdFirst = new BigDecimal(firstNum);
         BigDecimal bdSecond = new BigDecimal(secondNum);
 
-        System.out.println("division result: " + bdFirst.divide(bdSecond));
+        System.out.println("division result: " + bdFirst.divide(bdSecond,2, RoundingMode.DOWN));
     }
 }
