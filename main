@@ -1,0 +1,17 @@
+public static void main(String[] args) {
+
+        Fractional f = new Fractional(4, 8);
+        Fractional f2 = new Fractional(2,0);
+        f.add(f2);
+        f.sub(f2);
+        f.mul(f2);
+        f.div(f2);
+    }
+    
+/*addition result: 6.8
+  subtraction result: 2.8
+  multiplication result: 9.60
+  division result: 2.4*/
+  
+  
+  
