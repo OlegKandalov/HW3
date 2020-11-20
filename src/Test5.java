@@ -1,0 +1,75 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+public class Test5 {
+}
+
+class Money{
+    long uah;
+    byte kopeyka;
+
+    public Money(long uah, int kopeyka){
+        this.uah = uah;
+        this.kopeyka = (byte) kopeyka;
+    }
+
+    public void add(Money money){
+        String firstNum = "" + this.uah + "." + this.kopeyka;
+        String secondNum = "" + money.uah + "." + money.kopeyka;
+        BigDecimal bdFirst = new BigDecimal(firstNum);
+        BigDecimal bdSecond = new BigDecimal(secondNum);
+
+        System.out.println("addition result: " +
+                bdFirst.add(bdSecond).toString().replace(".",","));
+    }
+    public void sub(Money money){
+        String firstNum = "" + this.uah + "." + this.kopeyka;
+        String secondNum = "" + money.uah + "." + money.kopeyka;
+        BigDecimal bdFirst = new BigDecimal(firstNum);
+        BigDecimal bdSecond = new BigDecimal(secondNum);
+
+        System.out.println("subtraction result: " +
+                bdFirst.subtract(bdSecond).toString().replace(".",","));
+    }
+
+    public void div(Money money){
+        String firstNum = "" + this.uah + "." + this.kopeyka;
+        String secondNum = "" + money.uah + "." + money.kopeyka;
+        BigDecimal bdFirst = new BigDecimal(firstNum);
+        BigDecimal bdSecond = new BigDecimal(secondNum);
+
+        System.out.println("division result: " +
+                bdFirst.divide(bdSecond,2, RoundingMode.DOWN).toString().replace(".",","));
+    }
+
+    public void fractionalDiv(double money){
+        String firstNum = "" + this.uah + "." + this.kopeyka;
+        double first = new BigDecimal(firstNum).doubleValue();
+        double resultAfterDiv = first / money;
+
+        System.out.println(("fractional division result: " +
+                resultAfterDiv).replace(".",","));
+    }
+    public void fractionalMul(double money){
+        String firstNum = "" + this.uah + "." + this.kopeyka;
+        double first = new BigDecimal(firstNum).doubleValue();
+        double resultAfterDiv = first * money;
+
+        System.out.println(("fractional multiplication result: " +
+                resultAfterDiv).replace(".",","));
+    }
+    public void compare(Money money){
+        BigDecimal bdFirst = new BigDecimal("" + this.uah + "." + this.kopeyka);
+        BigDecimal bdSecond = new BigDecimal("" + money.uah + "." + money.kopeyka);
+
+        if (bdFirst.compareTo(bdSecond) == 0) {
+            System.out.println("money is equal");
+        }else if (bdFirst.compareTo(bdSecond) > 0){
+            System.out.println(bdFirst.toString().replace(".",",") +
+                    " > " + bdSecond.toString().replace(".",","));
+        }else {
+            System.out.println(bdFirst.toString().replace(".",",") +
+                    " < " + bdSecond.toString().replace(".",","));
+        }
+    }
+}
