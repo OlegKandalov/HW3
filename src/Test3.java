@@ -3,6 +3,7 @@ public class Test3 {
 
 class Car {
     private double speed;
+    boolean motorOn;
 
     public void setSpeed(double speed){
         this.speed = speed;
@@ -11,22 +12,35 @@ class Car {
         return speed;
     }
 
-    void keyToTheRight(){
-        System.out.println("Car engine started");
+    void keyToTheRight(boolean motorOn){
+        this.motorOn = motorOn;
+        if (!this.motorOn) {
+            this.motorOn = true;
+            System.out.println("Car engine started");
+        }
     }
-    void stop(){
-        System.out.println("The car engine is muffled");
+    void stop(boolean motorOn){
+        this.motorOn = motorOn;
+        if (this.motorOn){
+            this.motorOn = false;
+            setSpeed(0.0);
+            System.out.println("The car engine is muffled");
+        }
     }
     void motion(){
         if (getSpeed() > 0) {
             System.out.println("Your car is motion");
         }else {
-            stop();
+            stop(false);
         }
     }
     void keepSpeed(double speed){
-        setSpeed(speed);
-        motion();
-        System.out.println("Your car will keep a speed - " + getSpeed() + " mph");
+        if (motorOn == true & speed < 180) {
+            setSpeed(speed);
+            motion();
+            System.out.println("Your car will keep a speed - " + getSpeed() + " mph");
+        } else {
+            System.out.println("Just turn key to the right");
+        }
     }
 }
