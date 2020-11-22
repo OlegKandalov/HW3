@@ -5,36 +5,40 @@ class Car {
     private double speed;
     boolean motorOn;
 
-    public void setSpeed(double speed){
+    public void setSpeed(double speed) {
         this.speed = speed;
     }
-    public double getSpeed(){
+
+    public double getSpeed() {
         return speed;
     }
 
-    void keyToTheRight(boolean motorOn){
+    void keyToTheRight(boolean motorOn) {
         this.motorOn = motorOn;
         if (!this.motorOn) {
             this.motorOn = true;
             System.out.println("Car engine started");
         }
     }
-    void stop(boolean motorOn){
+
+    void stop(boolean motorOn) {
         this.motorOn = motorOn;
-        if (this.motorOn){
-            this.motorOn = false;
+        if (this.motorOn) {
             setSpeed(0.0);
+            this.motorOn = false;
             System.out.println("The car engine is muffled");
         }
     }
-    void motion(){
-        if (getSpeed() > 0) {
+
+    void motion() {
+        if (getSpeed() > 0 & motorOn == true) {
             System.out.println("Your car is motion");
-        }else {
-            stop(false);
+        } else {
+            stop(true);
         }
     }
-    void keepSpeed(double speed){
+
+    void keepSpeed(double speed) {
         if (motorOn == true & speed < 180) {
             setSpeed(speed);
             motion();
