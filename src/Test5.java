@@ -2,6 +2,25 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class Test5 {
+    public static void main(String[] args) {
+
+        Money f = new Money(4, 6);
+        Money f2 = new Money(3,4);
+        f.add(f2);
+        f.sub(f2);
+        f.div(f2);
+        f.fractionalDiv(1.4);
+        f.fractionalMul(3.5);
+        f.compare(f2);
+        
+        /*addition result: 8,0
+  subtraction result: 1,2
+  division result: 1,35
+  fractional division result: 3,2857142857142856
+  fractional multiplication result: 16,099999999999998
+  4,6 > 3,4*/
+        
+    }
 }
 
 class Money{
